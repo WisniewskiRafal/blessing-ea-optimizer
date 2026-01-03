@@ -404,6 +404,9 @@ installation_log.txt
 strategies/blessing_*.mq4
 strategies/blessing_*.ex4
 
+# Internal project documentation (not for public)
+CLAUDE.md
+
 # Custom brokers data
 custom_brokers/
 
