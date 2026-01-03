@@ -406,6 +406,11 @@ strategies/blessing_*.ex4
 
 # Internal project documentation (not for public)
 CLAUDE.md
+YOUR_COMMANDS.txt
+NEXT_STEPS.txt
+
+# Claude Code settings (personal)
+.claude/
 
 # Custom brokers data
 custom_brokers/
