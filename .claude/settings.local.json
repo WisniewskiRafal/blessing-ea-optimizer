@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(ls -lh \"d:\\\\Blessing Optymalizer\\\\data\\\\state\"\" 2>/dev/null || echo \"State directory created \")",
+      "Bash(dir:*)",
+      "Bash(dir \"d:\\\\Blessing Optymalizer\\\\data\\\\set_files\")",
+      "Bash(python -c:*)",
+      "Bash(timeout 30 python:*)",
+      "Bash(test:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

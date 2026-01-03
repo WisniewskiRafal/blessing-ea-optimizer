@@ -1,0 +1,450 @@
+# Blessing EA Optimizer - .gitignore
+# Author: Rafał Wiśniewski | Data & AI Solutions
+
+# ============================================
+# Python
+# ============================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# ============================================
+# MetaTrader
+# ============================================
+# MT4/MT5 data files
+*.hst
+*.fxt
+*.dat
+
+# MT4/MT5 logs
+*.log
+
+# MT4/MT5 compiled files
+*.ex4
+*.ex5
+
+# MT4/MT5 reports (keep templates, ignore generated)
+*.htm
+*.xml
+# Exception: keep template reports
+!*_template.htm
+!*_template.xml
+
+# ============================================
+# Data Files
+# ============================================
+# Tick data (can be very large)
+cache/tick_data/*.csv
+cache/tick_data/*.parquet
+cache/tick_data/*.hdf5
+cache/tick_data/*.h5
+
+# Processed OHLC data
+cache/ohlc_data/*.csv
+cache/ohlc_data/*.parquet
+
+# Large datasets
+*.csv.gz
+*.parquet.gz
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================
+# Output Files
+# ============================================
+# Generated .set files (keep examples)
+output/optimized_sets/*.set
+!output/optimized_sets/example_*.set
+
+# Optimization results
+output/results/*.json
+output/results/*.pkl
+output/results/*.pickle
+
+# Reports
+output/reports/*.txt
+output/reports/*.pdf
+output/reports/*.html
+
+# Charts/Plots
+output/charts/*.png
+output/charts/*.jpg
+output/charts/*.svg
+
+# ============================================
+# Credentials & Secrets
+# ============================================
+# Environment variables with credentials
+.env
+.env.local
+.env.*.local
+
+# API keys
+api_keys.txt
+credentials.json
+secrets.json
+
+# MT4/MT5 account info
+account_info.txt
+login_details.txt
+
+# ============================================
+# IDE & Editors
+# ============================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============================================
+# OS Files
+# ============================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# Temporary Files
+# ============================================
+# Temporary data
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*.backup
+*_backup
+*_old
+
+# Lock files
+*.lock
+
+# ============================================
+# Streamlit
+# ============================================
+.streamlit/secrets.toml
+.streamlit/config.toml
+
+# ============================================
+# Optimization Artifacts
+# ============================================
+# Optuna database
+optuna.db
+optuna_*.db
+
+# Checkpoints
+checkpoints/*.pkl
+checkpoints/*.pickle
+
+# DEAP genetic algorithm state
+population_*.pkl
+halloffame_*.pkl
+
+# ============================================
+# Testing
+# ============================================
+# Test outputs
+test_output/
+test_results/
+
+# Mock data (keep fixtures)
+tests/mock_data/*.csv
+tests/mock_data/*.parquet
+!tests/fixtures/
+
+# ============================================
+# Documentation Build
+# ============================================
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# Sphinx
+docs/build/
+
+# MkDocs
+site/
+
+# ============================================
+# Misc
+# ============================================
+# Compressed files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Large binary files
+*.bin
+*.exe
+*.dll
+
+# Compiled libraries
+*.a
+*.lib
+
+# GPU cache
+.nv/
+*.cubin
+*.fatbin
+*.ptx
+
+# Ray (parallel processing)
+/tmp/ray/
+
+# Joblib
+joblib_cache/
+
+# ============================================
+# Project Specific - Blessing EA Optimizer
+# ============================================
+# Historical tick/M1 data (usually in external folder, but ignore if copied)
+data/tick_data/
+
+# Optimization results (IGNORE ENTIRE FOLDERS except markdown docs)
+data/results/continuous/
+data/results/opt_*/
+data/results/test_*/
+
+# Generated .set files for MT4/MT5 (IGNORE ALL except examples)
+data/set_files/
+!data/set_files/.gitkeep
+
+# Optimization state (for resume capability)
+data/state/
+
+# Keep documentation in data/results
+!data/results/*.md
+!data/results/ANALIZA_WYNIKOW.md
+
+# User config (contains custom paths)
+config.yaml
+config.json
+
+# Keep only the example template
+!config.yaml.example
+!config.example.json
+
+# Test files (not needed in production)
+test_*.py
+benchmark_*.py
+
+# VS folders
+.vs/
+.vscode/
+
+# Temporary folders
+Nowy\ folder/
+NUL
+*.tmp
+
+# Logs
+installation_log.txt
+*.log
+
+# Blessing EA original files (proprietary)
+strategies/blessing_*.mq4
+strategies/blessing_*.ex4
+
+# Custom brokers data
+custom_brokers/
+
+# User uploaded files (keep examples)
+uploads/*
+!uploads/example_*
+
+# Performance benchmarks
+benchmarks/results/
+
+# Large ML models (if any)
+models/*.pkl
+models/*.h5
+models/*.pt
+models/*.pth
+
+# Profiling data
+*.prof
+*.lprof
+
+# ============================================
+# Keep These Files
+# ============================================
+# Keep empty directories with .gitkeep
+!**/.gitkeep
+
+# Keep example configs
+!.env.template
+!config.example.json
+
+# Keep documentation
+!docs/*.md
+!docs/*.rst
+
+# Keep test fixtures
+!tests/fixtures/**
+
+# ============================================
+# Notes
+# ============================================
+# Personal notes (optional - uncomment if needed)
+# NOTES.md
+# TODO.md
+# PRIVATE.md

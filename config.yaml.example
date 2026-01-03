@@ -1,0 +1,79 @@
+# Blessing EA Optimizer - Configuration Template
+# Copy this file to config.yaml and customize for your setup
+
+# Data Settings
+data:
+  # Main directory containing historical data
+  data_dir: "d:/tick_data"  # Change to your data folder
+  
+  # Supported formats: csv, parquet
+  data_format: "csv"
+  
+  # File naming pattern
+  # {symbol}_{year}_M1_formatted.csv  (example: EURUSD_2024_M1_formatted.csv)
+  file_pattern: "{symbol}_{year}_M1_formatted.csv"
+  
+  # Expected CSV columns (case-insensitive, will be auto-detected)
+  # Required: timestamp, open, high, low, close
+  # Optional: volume, spread
+  csv_columns:
+    timestamp: ["timestamp", "time", "datetime", "date"]
+    open: ["open", "o"]
+    high: ["high", "h"]
+    low: ["low", "l"]
+    close: ["close", "c"]
+
+# Optimization Defaults
+optimization:
+  default_symbol: "EURUSD"
+  default_start_date: "2024-01-01"
+  default_end_date: "2024-12-31"
+  top_n_configs: 10  # Number of best configurations to save
+  
+  # Genetic Algorithm settings
+  genetic:
+    population_size: 100
+    generations: 50
+    mutation_rate: 0.2
+    crossover_rate: 0.8
+  
+  # Bayesian Optimization settings
+  bayesian:
+    n_calls: 300  # Number of iterations per phase
+    n_initial_points: 50  # Random exploration
+
+# Hardware Settings
+hardware:
+  use_gpu: true  # Auto-detect GPU, fallback to CPU if not available
+  cpu_cores: -1  # -1 = use all cores, or specify number (e.g., 8)
+  
+  # GPU settings (if available)
+  gpu:
+    device_id: 0  # Which GPU to use (0 = first GPU)
+    mixed_precision: true  # Use FP16 for ~4x speedup
+
+# Output Settings
+output:
+  results_dir: "data/results"
+  set_files_dir: "data/set_files"
+  state_dir: "data/state"  # For resuming optimizations
+  
+  # Save visualizations
+  save_plots: true
+  plot_format: "png"  # png, jpg, pdf
+  
+  # Logging
+  log_level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  log_file: "blessing_optimizer.log"
+
+# Multi-Symbol Settings (for parallel optimization)
+multi_symbol:
+  enabled: false
+  symbols:
+    - "EURUSD"
+    - "GBPUSD"
+    - "USDJPY"
+    - "XAUUSD"
+  
+  # Run each symbol in separate process
+  parallel: true

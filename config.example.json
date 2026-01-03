@@ -1,0 +1,433 @@
+{
+  "_comment": "Blessing EA Optimizer - Example Configuration",
+  "_author": "Rafał Wiśniewski | Data & AI Solutions",
+  "_instructions": [
+    "This is an example configuration file",
+    "Copy to config.json and customize for your setup",
+    "All fields are optional - system uses defaults if not specified"
+  ],
+
+  "platform": {
+    "type": "MT5",
+    "path": "C:/Program Files/MetaTrader 5",
+    "login": 12345678,
+    "server": "BrokerName-Demo",
+    "note": "DO NOT commit credentials to version control"
+  },
+
+  "trading": {
+    "symbol": "EURUSD",
+    "timeframe": "H1",
+    "multi_symbol": false,
+    "symbols": [
+      "EURUSD",
+      "GBPUSD",
+      "USDJPY"
+    ],
+    "hedge_symbol": "",
+    "hedge_enabled": false
+  },
+
+  "backtest": {
+    "date_from": "2023-01-01",
+    "date_to": "2024-01-01",
+    "deposit": 10000,
+    "leverage": 100,
+    "spread": 20,
+    "commission": 0,
+    "model": 0,
+    "data_source": "broker",
+    "tick_files_path": "./cache/tick_data",
+    "timeout_seconds": 600
+  },
+
+  "optimization": {
+    "method": "bayesian",
+    "n_trials": 100,
+    "n_workers": "auto",
+    "use_gpu": "auto",
+    "gpu_batch_size": 4,
+    
+    "genetic": {
+      "population_size": 50,
+      "generations": 100,
+      "mutation_rate": 0.2,
+      "crossover_rate": 0.7,
+      "elite_size": 5
+    },
+    
+    "bayesian": {
+      "n_startup_trials": 10,
+      "use_pruning": true,
+      "sampler": "TPE"
+    },
+    
+    "parameters_to_optimize": [
+      "grid_structure",
+      "entry_indicators",
+      "money_management",
+      "risk_management",
+      "profit_management"
+    ],
+    
+    "metrics_weights": {
+      "sharpe_ratio": 0.40,
+      "profit_factor": 0.30,
+      "recovery_factor": 0.20,
+      "win_rate": 0.10
+    }
+  },
+
+  "walk_forward": {
+    "enabled": true,
+    "train_size": 0.70,
+    "test_size": 0.30,
+    "n_splits": 5,
+    "step_size": null,
+    "anchored": false
+  },
+
+  "monte_carlo": {
+    "enabled": false,
+    "n_simulations": 1000,
+    "vary_params": [
+      "Multiplier",
+      "MaxTrades",
+      "MaxDDPercent"
+    ],
+    "variance_pct": 0.10
+  },
+
+  "blessing_parameters": {
+    "_comment": "Default Blessing EA parameters - will be optimized",
+    
+    "grid_structure": {
+      "GridSetArray": [25, 50, 100],
+      "TP_SetArray": [50, 100, 200],
+      "SetCountArray": [5, 4],
+      "MaxTrades": 12,
+      "AutoCal": false,
+      "GAF": 1.0
+    },
+    
+    "entry_indicators": {
+      "MAEntry": 1,
+      "MAPeriod": 100,
+      "MADistance": 5,
+      "CCIEntry": 0,
+      "CCIPeriod": 14,
+      "BollingerEntry": 0,
+      "BollPeriod": 15,
+      "BollDistance": 13,
+      "BollDeviation": 2.0,
+      "StochEntry": 0,
+      "BuySellStochZone": 20,
+      "MACDEntry": 0,
+      "UseAnyEntry": false,
+      "EntryDelay": 240,
+      "ForceMarketCond": 0
+    },
+    
+    "money_management": {
+      "Lot": 0.01,
+      "Multiplier": 1.4,
+      "LAF": 1.0,
+      "PortionPC": 100
+    },
+    
+    "risk_management": {
+      "MaxDDPercent": 50,
+      "StopTradePercent": 10,
+      "BreakEvenTrade": 12,
+      "BEPlusPips": 0
+    },
+    
+    "profit_management": {
+      "MaximizeProfit": true,
+      "ProfitSet": 70,
+      "MoveTP": 0,
+      "TotalMoves": 1,
+      "ForceTPPips": 0,
+      "MinTPPips": 10
+    },
+    
+    "advanced": {
+      "UseSmartGrid": false,
+      "UseCloseOldest": false,
+      "RecoupClosedLoss": true,
+      "UseEarlyExit": false,
+      "EEStartHours": 24,
+      "EEHoursPC": 1
+    },
+    
+    "hedging": {
+      "UseHedge": false,
+      "HedgeSymbol": "",
+      "DDorLevel": "D",
+      "HedgeStart": 20,
+      "HedgeLotMult": 1.0
+    },
+    
+    "stop_loss": {
+      "UsePowerOutSL": true,
+      "POSLPips": 600,
+      "UseStopLoss": false,
+      "TSLPips": 50,
+      "SLPips": 0
+    },
+    
+    "other": {
+      "B3Traditional": true,
+      "MaxSpread": 50,
+      "Slip": 3,
+      "TradeComment": "Blessing"
+    }
+  },
+
+  "optimization_constraints": {
+    "_comment": "Parameter ranges for optimization",
+    
+    "MaxTrades": {
+      "min": 5,
+      "max": 30,
+      "step": 1
+    },
+    
+    "Multiplier": {
+      "min": 1.0,
+      "max": 3.0,
+      "step": 0.1
+    },
+    
+    "MaxDDPercent": {
+      "min": 20,
+      "max": 80,
+      "step": 5
+    },
+    
+    "MAPeriod": {
+      "min": 10,
+      "max": 200,
+      "step": 10
+    },
+    
+    "EntryDelay": {
+      "min": 0,
+      "max": 3600,
+      "step": 60
+    }
+  },
+
+  "hardware": {
+    "cpu_workers": "auto",
+    "gpu_enabled": "auto",
+    "gpu_device_id": 0,
+    "memory_limit_mb": 0,
+    "cache_enabled": true,
+    "cache_size_gb": 50
+  },
+
+  "output": {
+    "save_path": "./output/optimized_sets",
+    "results_path": "./output/results",
+    "reports_path": "./output/reports",
+    "charts_path": "./output/charts",
+    "save_checkpoints": true,
+    "checkpoint_interval": 10,
+    "export_formats": [
+      "set",
+      "json",
+      "csv"
+    ]
+  },
+
+  "logging": {
+    "level": "INFO",
+    "file": "./logs/optimizer.log",
+    "console": true,
+    "format": "detailed",
+    "max_size_mb": 10,
+    "backup_count": 5
+  },
+
+  "notifications": {
+    "email": {
+      "enabled": false,
+      "smtp_host": "smtp.gmail.com",
+      "smtp_port": 587,
+      "from": "your-email@gmail.com",
+      "to": "recipient@example.com"
+    },
+    
+    "telegram": {
+      "enabled": false,
+      "bot_token": "YOUR_BOT_TOKEN",
+      "chat_id": "YOUR_CHAT_ID"
+    },
+    
+    "events": {
+      "optimization_start": true,
+      "optimization_complete": true,
+      "optimization_error": true,
+      "new_best_found": true
+    }
+  },
+
+  "advanced": {
+    "random_seed": 42,
+    "enable_profiling": false,
+    "debug_mode": false,
+    "mock_platforms": false,
+    "optuna_storage": "sqlite:///optuna.db",
+    "optuna_study_name": null
+  },
+
+  "presets": {
+    "_comment": "Pre-configured optimization presets",
+    
+    "conservative": {
+      "description": "Low risk, stable returns",
+      "MaxDDPercent": 20,
+      "Multiplier": 1.2,
+      "MaxTrades": 8,
+      "BreakEvenTrade": 10
+    },
+    
+    "moderate": {
+      "description": "Balanced risk/reward",
+      "MaxDDPercent": 30,
+      "Multiplier": 1.4,
+      "MaxTrades": 12,
+      "BreakEvenTrade": 12
+    },
+    
+    "aggressive": {
+      "description": "High risk, high reward",
+      "MaxDDPercent": 50,
+      "Multiplier": 1.8,
+      "MaxTrades": 20,
+      "BreakEvenTrade": 15
+    },
+    
+    "scalping": {
+      "description": "Short timeframe, quick exits",
+      "timeframe": "M5",
+      "GridSetArray": [10, 20, 40],
+      "TP_SetArray": [20, 40, 80],
+      "UseEarlyExit": true,
+      "MaxTrades": 10
+    },
+    
+    "swing": {
+      "description": "Longer timeframe, larger grids",
+      "timeframe": "H4",
+      "GridSetArray": [50, 100, 200],
+      "TP_SetArray": [100, 200, 400],
+      "MaxTrades": 15
+    }
+  },
+
+  "portfolio": {
+    "_comment": "Multi-symbol portfolio settings",
+    
+    "enabled": false,
+    
+    "symbols": [
+      {
+        "symbol": "EURUSD",
+        "weight": 0.4,
+        "max_dd": 20
+      },
+      {
+        "symbol": "GBPUSD",
+        "weight": 0.3,
+        "max_dd": 20
+      },
+      {
+        "symbol": "USDJPY",
+        "weight": 0.3,
+        "max_dd": 20
+      }
+    ],
+    
+    "correlation_threshold": 0.7,
+    "rebalance_interval": "monthly",
+    "max_portfolio_dd": 30
+  },
+
+  "custom_objectives": {
+    "_comment": "Define custom optimization objectives",
+    
+    "maximize": [
+      "sharpe_ratio",
+      "profit_factor"
+    ],
+    
+    "minimize": [
+      "max_drawdown_percent"
+    ],
+    
+    "constraints": [
+      {
+        "metric": "win_rate",
+        "operator": ">=",
+        "value": 0.5
+      },
+      {
+        "metric": "profit_factor",
+        "operator": ">=",
+        "value": 1.5
+      }
+    ]
+  },
+
+  "data_processing": {
+    "tick_to_ohlc": {
+      "method": "numba",
+      "chunk_size": 1000000,
+      "parallel": true
+    },
+    
+    "validation": {
+      "check_gaps": true,
+      "max_gap_minutes": 5,
+      "check_spread": true,
+      "max_spread": 100
+    },
+    
+    "normalization": {
+      "remove_outliers": true,
+      "outlier_std": 5.0,
+      "interpolate_missing": true
+    }
+  },
+
+  "examples": {
+    "_comment": "Example configurations for different scenarios",
+    
+    "quick_test": {
+      "description": "Fast optimization for testing",
+      "n_trials": 20,
+      "date_from": "2024-06-01",
+      "date_to": "2024-12-01",
+      "parameters_to_optimize": ["risk_management"]
+    },
+    
+    "full_optimization": {
+      "description": "Comprehensive optimization",
+      "n_trials": 500,
+      "date_from": "2020-01-01",
+      "date_to": "2024-12-01",
+      "walk_forward": true,
+      "monte_carlo": true
+    },
+    
+    "gpu_accelerated": {
+      "description": "Use GPU for maximum speed",
+      "use_gpu": true,
+      "gpu_batch_size": 16,
+      "n_workers": 1,
+      "n_trials": 1000
+    }
+  }
+}
