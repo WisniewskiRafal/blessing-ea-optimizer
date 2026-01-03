@@ -1,5 +1,10 @@
 # BLESSING EA OPTIMIZER v3.0
 
+[![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-7C3AED?logo=anthropic)](https://claude.ai/code)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?logo=pytorch)](https://pytorch.org/)
+
 **Complete optimization system for Blessing EA with 5 strategies and 134 parameters**
 
 **Author:** Rafał Wiśniewski | Data & AI Solutions
@@ -384,11 +389,50 @@ d:\tick_data\EURUSD_2024_M1_formatted.csv
 
 ---
 
+## 🤖 DEVELOPMENT WITH AI
+
+This project was developed in collaboration with **Claude Code** (Anthropic), demonstrating the future of AI-assisted software development.
+
+### What This Collaboration Showcases:
+
+**Human Expertise (Rafał):**
+- 📊 Domain knowledge in algorithmic trading and optimization
+- 🎯 Project architecture and design decisions
+- 🔬 Strategy development and backtesting methodology
+- ✅ Testing, validation, and quality assurance
+- 🎨 Problem definition and requirements specification
+
+**AI Capabilities (Claude Code):**
+- 💻 Code implementation and best practices
+- 📚 Comprehensive documentation generation
+- 🐛 Debugging and optimization assistance
+- 🔧 Technical implementation details
+- 📖 Multi-language documentation
+
+### Why This Matters:
+
+This project exemplifies **AI-augmented development** - a crucial skill in 2026 and beyond. It demonstrates:
+
+✅ **Effective AI collaboration** - Knowing how to leverage AI tools productively
+✅ **Domain expertise + AI implementation** - The winning combination for modern development
+✅ **Transparency** - Open about tools and methodologies used
+✅ **Results-focused** - What matters is solving problems, not just writing code
+✅ **Future-ready skillset** - AI pair programming is the new standard
+
+> "I'm not a traditional programmer - I'm a domain expert who leverages AI to build production-ready systems. This represents the future of work where subject matter expertise combines with AI capabilities to create innovative solutions."
+>
+> — Rafał Wiśniewski
+
+**Tech Stack:** Human creativity + Claude Code AI + Python + PyTorch = Production-ready optimization system
+
+---
+
 ## 📧 CONTACT
 
 **Author:** Rafał Wiśniewski
-**Email:** [Your email]
-**GitHub:** [Link to repo]
+**Email:** wisniewski.data@pm.me
+**GitHub:** https://github.com/WisniewskiRafal/blessing-ea-optimizer
+**LinkedIn:** [Your LinkedIn Profile]
 
 ---
 
